@@ -5,7 +5,6 @@ var people = require(path.join(__dirname, 'data/people.json'));
 
 var app = express();
 
-
 app.use('/mockup/', express.static(path.join(__dirname, 'mockup')));
 app.get('/api/people', function(req, res) {
     res.end(JSON.stringify(people, null, '    '));
@@ -19,7 +18,6 @@ app.listen(HTTP_PORT, function(err) {
     }
 
     console.log(('HTTP server listening on port ' + HTTP_PORT).green);
-
     console.log('Mockup:'.bold + ' http://localhost:' + HTTP_PORT + '/mockup/');
     console.log('People data:'.bold + ' http://localhost:' + HTTP_PORT + '/api/people');
 });
