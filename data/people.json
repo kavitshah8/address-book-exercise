@@ -1,7 +1,8 @@
 {
     "people": [
         {
-            "name": "Adam Wright",
+            "firstName": "Adam",
+            "lastName": "Wright",
             "education": [
                 {
                     "institution": "NC State University",
@@ -20,7 +21,8 @@
             ]
         },
         {
-            "name": "Joe Manfrey",
+            "firstName": "Joe",
+            "lastName":  "Manfrey",
             "education": [
                 {
                     "institution": "Clemson University",
@@ -39,7 +41,8 @@
             ]
         },
         {
-            "name": "Douglas Cho",
+            "firstName": "Douglas",
+            "lastName": "Cho",
             "education": [
                 {
                     "institution": "University of NC, Chapel Hill",
@@ -58,7 +61,8 @@
             ]
         },
         {
-            "name": "Allison Murray",
+            "firstName": "Allison",
+            "lastName": "Murray",
             "education": [
                 {
                     "institution": "University of Southern California",
