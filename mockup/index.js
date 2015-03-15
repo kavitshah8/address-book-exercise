@@ -20,7 +20,8 @@ var createDOM = function (people){
 
 	for(var i = 0; i < people.length; i++){
 
-		$('.app-directory').append('<div class="app-directory-item">' + people[i].firstName + ' ' + people[i].lastName + '</div>');
+		var name = '<div class="app-directory-item">' + people[i].firstName + ' ' + people[i].lastName + '</div>';
+		$('.app-directory').append(name);
 	}
 };
 
