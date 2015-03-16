@@ -22,7 +22,7 @@ var createLeftColumn = function (people) {
 	$('.app-directory-separator').each(function () {
 		
 		var seperator = $(this).html();
-		var removeFlag = 1;
+		var removeFlag = true;
 
 		for (var i = people.length - 1; i >= 0; i--) {
 
@@ -30,7 +30,7 @@ var createLeftColumn = function (people) {
 			
 				if (firstCharacter === seperator) {
 					var name = '<div class="app-directory-item">' + people[i].firstName + ' ' + people[i].lastName + '</div>';				
-					removeFlag = 0;
+					removeFlag = false;
 					$(this).after(name);
 				}
 		}
