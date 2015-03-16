@@ -3,11 +3,11 @@ var sortByFirstName = function (people) {
 	people.sort(function(a, b) {
 
     if (a.firstName < b.firstName) {
-			return -1;
+    	return -1;
     }
 
     if (a.firstName > b.firstName) {
-			return 1;
+    	return 1;
     }
 
     return 0
@@ -22,18 +22,21 @@ var createLeftColumn = function (people) {
 	$('.app-directory-separator').each(function () {
 		
 		var seperator = $(this).html();
-
+		var removeFlag = 1;
+		
 		for (var i = people.length - 1; i >= 0; i--) {
 
 			var firstCharacter = people[i].firstName.charAt(0);
 			
 				if (firstCharacter === seperator) {
-
-					var name = '<div class="app-directory-item">' + people[i].firstName + ' ' + people[i].lastName + '</div>';
-					
+					var name = '<div class="app-directory-item">' + people[i].firstName + ' ' + people[i].lastName + '</div>';				
+					removeFlag = 0;
 					$(this).after(name);
-					// console.log($(this).html());
 				}
+		}
+
+		if (removeFlag) {
+			$(this).remove();
 		}
 	});
 };
@@ -47,7 +50,7 @@ var attachEventHandler = function (people) {
 		var nameArray = nameTrim.split(' ');
 		var firstName = nameArray[0];
 
-		// Find DOM's firstName in people array received from local server  
+		// Find matching value of firstName in the people array  
 		for (var i = 0; i < people.length; i++) {
 			
 			if (firstName === people[i].firstName) {
@@ -102,14 +105,14 @@ var attachEventHandler = function (people) {
 
 // GET DATA FROM LOCAL SERVER, SORT THE DATA, CREATE DOM, ATTACH EVENT HANDLERS
 
-$.get('//localhost:8080/api/people', function(data){
+$.get('//localhost:8080/api/people', function(data) {
 
 	var parsedData = JSON.parse(data);
 	sortByFirstName(parsedData.people);
 	createLeftColumn(parsedData.people);
 	attachEventHandler(parsedData.people);
 })
-.fail(function(){
+.fail(function() {
 	console.log('Something went wrong');
 });
 
