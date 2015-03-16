@@ -10,8 +10,8 @@ var sortByFirstName = function (people) {
     	return 1;
     }
 
-    return 0
-	});
+    return 0;
+  });
 
 };
 
@@ -23,7 +23,7 @@ var createLeftColumn = function (people) {
 		
 		var seperator = $(this).html();
 		var removeFlag = 1;
-		
+
 		for (var i = people.length - 1; i >= 0; i--) {
 
 			var firstCharacter = people[i].firstName.charAt(0);
