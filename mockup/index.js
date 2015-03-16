@@ -1,28 +1,41 @@
 var sortByFirstName = function (people) {
 
-	people.sort(function(a, b){
+	people.sort(function(a, b) {
 
-    if(a.firstName < b.firstName){
+    if (a.firstName < b.firstName) {
 			return -1;
     }
 
-    if(a.firstName > b.firstName){
+    if (a.firstName > b.firstName) {
 			return 1;
     }
 
-    return 0;
-
+    return 0
 	});
 
 };
 
-var createDOM = function (people) {
+var createLeftColumn = function (people) {
 
-	for (var i = 0; i < people.length; i++) {
+	$('.app-address-book .app-directory-item').remove();
+	
+	$('.app-directory-separator').each(function () {
+		
+		var seperator = $(this).html();
 
-		var name = '<div class="app-directory-item">' + people[i].firstName + ' ' + people[i].lastName + '</div>';
-		$('.app-directory').append(name);
-	}
+		for (var i = people.length - 1; i >= 0; i--) {
+
+			var firstCharacter = people[i].firstName.charAt(0);
+			
+				if (firstCharacter === seperator) {
+
+					var name = '<div class="app-directory-item">' + people[i].firstName + ' ' + people[i].lastName + '</div>';
+					
+					$(this).after(name);
+					// console.log($(this).html());
+				}
+		}
+	});
 };
 
 var attachEventHandler = function (people) {
@@ -42,7 +55,11 @@ var attachEventHandler = function (people) {
 				var name = '<h2>'+ people[i].firstName + ' ' + people[i].lastName +'</h2>';
 				$('.app-person-profile-header h2').replaceWith(name);
 				
-				// Create & update DOM for Education section				
+				var image = '<img src="images/' + people[i].image + '"' +'/>';
+				$('.app-person-profile-photo img').remove();
+				$('.app-person-profile-photo').append(image);
+
+				// Create & update Right Column's Education section				
 				for (var j = 0; j < people[i].education.length; j++) {
 
 					var educationBody = '<div class="app-history-item">'
@@ -60,7 +77,7 @@ var attachEventHandler = function (people) {
 				$('.education .app-history-item').remove();
 				$('.education .app-section-body').append(educationBody);
 				
-				// Create & update DOM for Work section				
+				// Create & update Right Column's Work section				
 				for (var k = 0; k < people[i].workExperience.length; k++) {
 
 					var workBody = '<div class="app-history-item">'
@@ -89,7 +106,7 @@ $.get('//localhost:8080/api/people', function(data){
 
 	var parsedData = JSON.parse(data);
 	sortByFirstName(parsedData.people);
-	createDOM(parsedData.people);
+	createLeftColumn(parsedData.people);
 	attachEventHandler(parsedData.people);
 })
 .fail(function(){
