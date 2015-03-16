@@ -89,6 +89,11 @@ html, body {
     background-size: contain;
 }
 
+.app-person-profile-photo img{
+    width: 125px;
+    height: 125px;
+}
+
 .app-person-profile-header {
     min-height: 145px;
     margin-left: 145px;
