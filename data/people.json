@@ -3,6 +3,7 @@
         {
             "firstName": "Adam",
             "lastName": "Wright",
+            "image": "dennis.png",
             "education": [
                 {
                     "institution": "NC State University",
@@ -23,6 +24,7 @@
         {
             "firstName": "Joe",
             "lastName":  "Manfrey",
+            "image": "linus.png",
             "education": [
                 {
                     "institution": "Clemson University",
@@ -43,6 +45,7 @@
         {
             "firstName": "Douglas",
             "lastName": "Cho",
+            "image": "douglas.png",
             "education": [
                 {
                     "institution": "University of NC, Chapel Hill",
@@ -63,6 +66,7 @@
         {
             "firstName": "Allison",
             "lastName": "Murray",
+            "image": "elon.png",
             "education": [
                 {
                     "institution": "University of Southern California",
